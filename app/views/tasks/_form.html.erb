@@ -1,0 +1,26 @@
+<%= form_with model: [ @list, @task ] do |f| %>
+  <div class="mb-3 row">
+    <%= f.label :title, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label :details, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.rich_text_area :details, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <%= f.label 'Select list', class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :list_id, @lists, :id, :name, class: "form-control"%>
+    </div>
+  </div>
+
+  <div class="col-auto">
+    <%= f.submit class: "btn btn-success mb-3" %>
+  </div>
+<% end %>
